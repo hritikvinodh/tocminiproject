@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Savoria Restaurant</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Inline CSS: timeline */
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before { content: ''; position: absolute; left: .75rem; top: 0; bottom: 0; width: 2px; background: var(--border); }
+    .timeline-item { position: relative; margin-bottom: 2.5rem; }
+    .timeline-dot { position: absolute; left: -1.95rem; top: .35rem; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); border: 3px solid var(--ivory); }
+    .timeline-year { font-size: .68rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: .35rem; }
+    .timeline-title { font-family: var(--font-serif); font-size: 1.2rem; color: var(--espresso); margin-bottom: .4rem; }
+    .timeline-desc { font-size: .85rem; color: var(--muted); line-height: 1.8; }
+    .values-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .value-card { padding: 1.75rem; border-radius: 12px; background: #fff; box-shadow: var(--shadow-sm); }
+    .value-icon { font-size: 2rem; margin-bottom: .75rem; }
+    .value-title { font-family: var(--font-serif); font-size: 1.2rem; color: var(--espresso); margin-bottom: .5rem; }
+    .value-desc { font-size: .82rem; color: var(--muted); line-height: 1.8; }
+    .awards-list { margin-top: 2rem; }
+    .award-item { display: flex; gap: 1.25rem; align-items: center; padding: 1rem; border-radius: 8px; border: 1px solid var(--border); margin-bottom: 1rem; transition: var(--transition); }
+    .award-item:hover { border-color: var(--gold); background: rgba(201,168,76,.03); }
+    .award-icon { font-size: 2rem; flex-shrink: 0; }
+    .award-year { font-size: .65rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--gold); }
+    .award-name { font-family: var(--font-serif); font-size: 1.1rem; color: var(--espresso); }
+    .award-org  { font-size: .78rem; color: var(--muted); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+    .gallery-cell { border-radius: 8px; background: var(--cream); height: 180px; display: flex; align-items: center; justify-content: center; font-size: 4rem; overflow: hidden; transition: transform .4s; cursor: pointer; }
+    .gallery-cell:hover { transform: scale(1.03); }
+    @media (max-width: 680px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar scrolled">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Savo<span>ria</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservation.html">Reserve</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="section-label">Our Heritage</span>
+    <h1>About Savoria</h1>
+  </div>
+</header>
+
+<!-- STORY & TIMELINE -->
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start" class="about-main-grid">
+
+      <div class="reveal">
+        <span class="section-label">Our Journey</span>
+        <h2 class="section-title">From Passion to Legacy</h2>
+        <p style="margin-bottom:2rem">
+          Savoria was born from a simple conviction: that Kerala's extraordinary culinary tradition deserved a stage that matched its ambition. What began as a fifteen-seat bistro in 2009 has grown into a landmark destination with fifty covers, a dedicated bakery, and a private dining room.
+        </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2009</div>
+            <div class="timeline-title">The Beginning</div>
+            <p class="timeline-desc">Chef Arjun Menon opens Savoria in a narrow shophouse on Princess Street, Fort Kochi, with a 15-seat dining room and a 6-item menu.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2012</div>
+            <div class="timeline-title">First Recognition</div>
+            <p class="timeline-desc">Featured in Kerala Tourism's "Best Emerging Restaurants" list. The team doubles and moves to the current Marine Drive location.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2017</div>
+            <div class="timeline-title">The Expansion</div>
+            <p class="timeline-desc">Savoria Bakery opens next door. Private dining room added for events, corporate dinners and bespoke celebrations.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2023</div>
+            <div class="timeline-title">Award & Recognition</div>
+            <p class="timeline-desc">Kerala Tourism Award for Best Fine Dining. Chef Arjun named one of India's Top 50 Chefs by Culinary Arts Magazine.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2025</div>
+            <div class="timeline-title">Today &amp; Beyond</div>
+            <p class="timeline-desc">50 covers, a tasting menu, and a rooftop bar launching this year. The same passion — amplified.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <!-- Values -->
+        <span class="section-label">Our Values</span>
+        <h2 class="section-title">What We Stand For</h2>
+        <div class="values-grid" style="margin-bottom:3rem">
+          <div class="value-card">
+            <div class="value-icon">🌿</div>
+            <div class="value-title">Sustainability</div>
+            <p class="value-desc">We source 80% of our ingredients locally, working directly with farmers and fishermen who share our values.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🧑‍🍳</div>
+            <div class="value-title">Craftsmanship</div>
+            <p class="value-desc">Every dish is prepared from scratch, with techniques refined over decades and a refusal to compromise on quality.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <div class="value-title">Community</div>
+            <p class="value-desc">We employ locally, support fishing communities, and donate 2% of revenue to childhood nutrition programmes.</p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">✨</div>
+            <div class="value-title">Innovation</div>
+            <p class="value-desc">Respecting tradition while reimagining it — our seasonal menu evolves to surprise returning guests every visit.</p>
+          </div>
+        </div>
+
+        <!-- Awards -->
+        <span class="section-label">Recognition</span>
+        <h3 style="font-family:var(--font-serif);font-size:1.6rem;color:var(--espresso);margin-bottom:1rem">Awards &amp; Accolades</h3>
+        <div class="awards-list">
+          <div class="award-item">
+            <div class="award-icon">🏆</div>
+            <div>
+              <div class="award-year">2023</div>
+              <div class="award-name">Best Fine Dining Restaurant</div>
+              <div class="award-org">Kerala Tourism Awards</div>
+            </div>
+          </div>
+          <div class="award-item">
+            <div class="award-icon">⭐</div>
+            <div>
+              <div class="award-year">2022</div>
+              <div class="award-name">Top 50 Chefs in India</div>
+              <div class="award-org">Culinary Arts Magazine</div>
+            </div>
+          </div>
+          <div class="award-item">
+            <div class="award-icon">🌟</div>
+            <div>
+              <div class="award-year">2020</div>
+              <div class="award-name">Best Sustainable Restaurant</div>
+              <div class="award-org">GreenPlate South India</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:3rem">
+      <span class="section-label">The Savoria Experience</span>
+      <h2 class="section-title">Why Guests Return</h2>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="feature-icon">🎵</div>
+        <div class="feature-title">Live Music</div>
+        <p class="feature-desc">Every Friday and Saturday evening, a live classical guitarist sets the mood for your dinner.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🍷</div>
+        <div class="feature-title">Wine Pairings</div>
+        <p class="feature-desc">Our sommelier curates an Old World wine list selected to complement our coastal Indian cuisine.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌊</div>
+        <div class="feature-title">Waterfront View</div>
+        <p class="feature-desc">Dine with sweeping views of the Kochi harbour. Request a window table at booking.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎂</div>
+        <div class="feature-title">Private Events</div>
+        <p class="feature-desc">Our private dining room seats up to 24 for anniversaries, corporate events and celebrations.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👨‍🍳</div>
+        <div class="feature-title">Chef's Table</div>
+        <p class="feature-desc">An exclusive 8-course tasting menu served at the Chef's Table — a truly immersive experience.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌿</div>
+        <div class="feature-title">Herb Garden</div>
+        <p class="feature-desc">We grow fresh herbs on our rooftop — from Malabar basil to curry leaf — used in every service.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:3rem">
+      <span class="section-label">The People</span>
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-subtitle">The talented individuals who make every evening at Savoria extraordinary.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar">👨‍🍳</div>
+        <div class="team-name">Arjun Menon</div>
+        <div class="team-role">Executive Chef &amp; Founder</div>
+        <p class="team-bio">Trained at the Culinary Institute of India and Le Cordon Bleu, Paris. Arjun blends 20 years of classical training with a deep love for Malabar home cooking.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">👩‍🍳</div>
+        <div class="team-name">Lakshmi Pillai</div>
+        <div class="team-role">Head Pastry Chef</div>
+        <p class="team-bio">A specialist in South Indian sweets elevated to fine-dining desserts. Her Ada Pradhaman Brûlée has been called "the dessert of the decade" by Kerala Food Review.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">🧑‍💼</div>
+        <div class="team-name">Rohan Thomas</div>
+        <div class="team-role">Restaurant Manager</div>
+        <p class="team-bio">With 12 years in hospitality management, Rohan ensures that every guest's experience at Savoria is flawless from first greeting to final farewell.</p>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar">🍷</div>
+        <div class="team-name">Divya Krishnan</div>
+        <div class="team-role">Head Sommelier</div>
+        <p class="team-bio">WSET Level 4 certified, Divya curates our wine list with an eye for value, sustainability, and perfect food pairing with our coastal cuisine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="text-center reveal" style="margin-bottom:3rem">
+      <span class="section-label">Gallery</span>
+      <h2 class="section-title">A Peek Inside Savoria</h2>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-cell" style="font-size:6rem">🍽️</div>
+      <div class="gallery-cell">🌊</div>
+      <div class="gallery-cell">🦞</div>
+      <div class="gallery-cell">🧑‍🍳</div>
+      <div class="gallery-cell">🍮</div>
+      <div class="gallery-cell">🌿</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background:var(--espresso);padding:5rem 0;text-align:center">
+  <div class="container reveal">
+    <span class="section-label" style="color:var(--gold);text-align:center;display:block">Come Visit</span>
+    <h2 style="font-family:var(--font-serif);color:var(--cream);font-size:clamp(1.8rem,4vw,3rem);margin-bottom:1rem">Experience Savoria for Yourself</h2>
+    <p style="color:rgba(245,240,232,.5);max-width:420px;margin:0 auto 2.5rem">Book a table and discover why Kerala's most discerning diners keep coming back.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="reservation.html" class="btn btn-primary">Reserve a Table</a>
+      <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Savo<span>ria</span></div>
+        <p class="footer-desc">Fine dining that celebrates the soul of Kerala.</p>
+      </div>
+      <div>
+        <div class="footer-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservation.html">Reserve</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Hours</div>
+        <ul class="footer-links">
+          <li><a>Mon – Thu: 12pm – 10pm</a></li>
+          <li><a>Fri – Sat: 12pm – 11pm</a></li>
+          <li><a>Sunday: 11am – 9pm</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span> 14 Marine Drive, Fort Kochi</div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span> +91 484 234 5678</div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✉️</span> hello@savoria.in</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Savoria Restaurant. All rights reserved.</span>
+      <div class="footer-socials">
+        <div class="footer-social">f</div>
+        <div class="footer-social">in</div>
+        <div class="footer-social">tw</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Fix grid for mobile
+  const grid = document.querySelector('.about-main-grid');
+  if (grid && window.innerWidth < 900) { grid.style.gridTemplateColumns = '1fr'; }
+  window.addEventListener('resize', () => {
+    if (grid) grid.style.gridTemplateColumns = window.innerWidth < 900 ? '1fr' : '1fr 1fr';
+  });
+</script>
+</body>
+</html>

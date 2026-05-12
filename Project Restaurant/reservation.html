@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserve a Table — Savoria</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <!-- Internal CSS: reservation page specifics -->
+  <style>
+    .hours-table { width: 100%; }
+    .hours-row { display: flex; justify-content: space-between; padding: .6rem 0; border-bottom: 1px solid var(--border); font-size: .88rem; }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-day { color: var(--espresso); font-weight: 600; }
+    .hours-time { color: var(--muted); }
+    .hours-tag { font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,.1); padding: .15rem .5rem; border-radius: 50px; }
+    .reservation-history { margin-top: 4rem; }
+    .policy-list { margin: 1rem 0; }
+    .policy-item { display: flex; gap: .75rem; align-items: flex-start; padding: .6rem 0; font-size: .85rem; color: var(--muted); }
+    .policy-icon { color: var(--gold); flex-shrink: 0; margin-top: .1rem; }
+    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .pkg-card { border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; text-align: center; transition: var(--transition); cursor: pointer; }
+    .pkg-card:hover, .pkg-card.selected { border-color: var(--gold); background: rgba(201,168,76,.04); }
+    .pkg-card.selected { box-shadow: 0 0 0 2px var(--gold); }
+    .pkg-icon { font-size: 2.5rem; margin-bottom: .75rem; }
+    .pkg-name { font-family: var(--font-serif); font-size: 1.2rem; color: var(--espresso); margin-bottom: .5rem; }
+    .pkg-desc { font-size: .78rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+    .pkg-price { font-family: var(--font-serif); font-size: 1.4rem; color: var(--gold); }
+    @media (max-width: 680px) { .packages-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar scrolled">
+  <div class="container">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Savo<span>ria</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="reservation.html">Reserve</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="section-label">Book Your Experience</span>
+    <h1>Reserve a Table</h1>
+  </div>
+</header>
+
+<!-- RESERVATION SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="reservation-wrap">
+
+      <!-- Left: Info -->
+      <div class="reveal">
+        <span class="section-label">Dining Info</span>
+        <h2 class="section-title">Plan Your Visit</h2>
+        <p>Reservations are recommended for dinner and weekend lunch. Walk-ins welcome subject to availability.</p>
+
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div class="info-text">
+            <h4>Opening Hours</h4>
+            <div class="hours-table">
+              <div class="hours-row"><span class="hours-day">Mon – Thu</span><span class="hours-time">12pm – 10pm</span></div>
+              <div class="hours-row"><span class="hours-day">Friday</span><span class="hours-time">12pm – 11pm</span></div>
+              <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">12pm – 11pm</span><span class="hours-tag">Busy</span></div>
+              <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time">11am – 9pm</span><span class="hours-tag">Brunch</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-text">
+            <h4>Location</h4>
+            <p>14 Marine Drive, Fort Kochi, Kerala 682001<br>Near Princess Street Junction</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div class="info-text">
+            <h4>Phone Reservation</h4>
+            <p>+91 484 234 5678 · Available 10am – 9pm daily</p>
+          </div>
+        </div>
+
+        <!-- Policies -->
+        <div style="margin-top:2rem;">
+          <h4 style="font-family:var(--font-serif);font-size:1.1rem;color:var(--espresso);margin-bottom:.5rem">Reservation Policies</h4>
+          <div class="policy-list">
+            <div class="policy-item"><span class="policy-icon">✓</span> Tables held for 15 minutes past booking time.</div>
+            <div class="policy-item"><span class="policy-icon">✓</span> Please inform us of dietary requirements in advance.</div>
+            <div class="policy-item"><span class="policy-icon">✓</span> Groups of 8+ please call ahead for special arrangements.</div>
+            <div class="policy-item"><span class="policy-icon">✓</span> Cancellations accepted up to 2 hours before dining time.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="reveal">
+        <div class="form-card">
+          <h3 style="font-family:var(--font-serif);font-size:1.6rem;color:var(--espresso);margin-bottom:1.5rem">Make a Reservation</h3>
+
+          <form id="reservation-form" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="name">Full Name *</label>
+                <input type="text" id="name" class="form-control" placeholder="Your name" autocomplete="name" />
+                <span class="error-msg">This field is required.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone *</label>
+                <input type="tel" id="phone" class="form-control" placeholder="+91 98765 43210" autocomplete="tel" />
+                <span class="error-msg">Enter a valid phone number.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input type="email" id="email" class="form-control" placeholder="your@email.com" autocomplete="email" />
+              <span class="error-msg">Please enter a valid email.</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="date">Date *</label>
+                <input type="date" id="date" class="form-control" />
+                <span class="error-msg">Select a valid future date.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="time">Preferred Time *</label>
+                <select id="time" class="form-control">
+                  <option value="">Select time…</option>
+                  <option>12:00 PM</option>
+                  <option>12:30 PM</option>
+                  <option>1:00 PM</option>
+                  <option>1:30 PM</option>
+                  <option>7:00 PM</option>
+                  <option>7:30 PM</option>
+                  <option>8:00 PM</option>
+                  <option>8:30 PM</option>
+                  <option>9:00 PM</option>
+                </select>
+                <span class="error-msg">Please select a time.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="guests">Number of Guests *</label>
+              <input type="number" id="guests" class="form-control" placeholder="2" min="1" max="20" />
+              <span class="error-msg">Must be between 1 and 20 guests.</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Dining Package (optional)</label>
+              <div class="packages-grid">
+                <div class="pkg-card" onclick="selectPkg(this,'standard')">
+                  <div class="pkg-icon">🍽️</div>
+                  <div class="pkg-name">Standard</div>
+                  <div class="pkg-desc">Regular table dining</div>
+                  <div class="pkg-price">À la carte</div>
+                </div>
+                <div class="pkg-card" onclick="selectPkg(this,'romantic')">
+                  <div class="pkg-icon">🌹</div>
+                  <div class="pkg-name">Romantic</div>
+                  <div class="pkg-desc">Candlelit with flowers &amp; dessert</div>
+                  <div class="pkg-price">+₹800</div>
+                </div>
+                <div class="pkg-card" onclick="selectPkg(this,'celebration')">
+                  <div class="pkg-icon">🎂</div>
+                  <div class="pkg-name">Celebration</div>
+                  <div class="pkg-desc">Custom cake &amp; decor</div>
+                  <div class="pkg-price">+₹1,500</div>
+                </div>
+              </div>
+              <input type="hidden" id="package" value="standard" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="notes">Special Requests</label>
+              <textarea id="notes" class="form-control" rows="3" placeholder="Allergies, dietary needs, occasion, seating preference…" style="resize:vertical"></textarea>
+            </div>
+
+            <!-- Star Rating -->
+            <div class="form-group">
+              <label class="form-label">Rate Your Last Visit (if any)</label>
+              <div class="star-rating" style="font-size:1.8rem;display:flex;gap:.25rem;cursor:pointer">
+                <span class="star" style="color:var(--border)">★</span>
+                <span class="star" style="color:var(--border)">★</span>
+                <span class="star" style="color:var(--border)">★</span>
+                <span class="star" style="color:var(--border)">★</span>
+                <span class="star" style="color:var(--border)">★</span>
+              </div>
+              <input type="hidden" id="rating-value" value="0" />
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;padding:1rem">Reserve Table</button>
+            <div class="success-msg">✓ Your table has been reserved! A confirmation will be sent to your email.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reservation History Table -->
+    <div class="reservation-history reveal">
+      <div class="text-center" style="margin-bottom:2rem">
+        <span class="section-label">Your Bookings</span>
+        <h2 class="section-title">Reservation History</h2>
+        <p class="section-subtitle">Your recent reservations made on this device.</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Guests</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="res-table-body">
+            <tr><td colspan="6" style="text-align:center;color:var(--muted);padding:2rem">No reservations yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Savo<span>ria</span></div>
+        <p class="footer-desc">Fine dining that celebrates the soul of Kerala.</p>
+      </div>
+      <div>
+        <div class="footer-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reservation.html">Reserve</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Hours</div>
+        <ul class="footer-links">
+          <li><a>Mon – Thu: 12pm – 10pm</a></li>
+          <li><a>Fri – Sat: 12pm – 11pm</a></li>
+          <li><a>Sunday: 11am – 9pm</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Contact</div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span> 14 Marine Drive, Fort Kochi</div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span> +91 484 234 5678</div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">✉️</span> hello@savoria.in</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Savoria Restaurant. All rights reserved.</span>
+      <div class="footer-socials">
+        <div class="footer-social">f</div>
+        <div class="footer-social">in</div>
+        <div class="footer-social">tw</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  // Set min date to today
+  const dateInput = document.getElementById('date');
+  if (dateInput) {
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+  }
+
+  function selectPkg(el, val) {
+    document.querySelectorAll('.pkg-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('package').value = val;
+  }
+  // Default select standard
+  document.querySelector('.pkg-card')?.classList.add('selected');
+</script>
+</body>
+</html>
